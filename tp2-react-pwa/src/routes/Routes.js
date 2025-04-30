@@ -1,6 +1,6 @@
 export const ROUTES = {
     home: '/',
-    detalles: '/detalles',
+    detalles: "/detalles/:id",
     favoritos: '/favoritos'
   }
   

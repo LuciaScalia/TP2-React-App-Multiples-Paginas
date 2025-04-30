@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ROUTES from './routes/Routes'
-import Home from './pages/Home'
-import Detalles from './pages/Detalles'
-import Favoritos from './pages/Favoritos'
+import Home from './pages/Home/Home'
+import Detalles from './pages/Detalles/Detalles';
+import Favoritos from './pages/Favoritos/Favoritos'
 
 function App() {
   return (
