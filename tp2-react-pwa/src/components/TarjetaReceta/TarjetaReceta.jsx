@@ -13,7 +13,7 @@ const TarjetaReceta = ({ receta }) => {
 
   return (
     <div>
-      <img src={receta.imagen} alt={receta.nombre} />
+      <img src={receta.imagen} alt={receta.nombre} style={{ maxWidth: '500px'}}  />
       <h3>{receta.nombre}</h3>
       <p><strong>País de origen:</strong> {receta.pais_origen}</p>
       <p><strong>Tiempo de preparación:</strong> {receta.tiempo_preparacion}</p>
