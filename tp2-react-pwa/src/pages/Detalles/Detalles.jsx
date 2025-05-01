@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Header from '../../components/Header/Header';
 
 const Detalles = () => {
   const {id} = useParams();  
@@ -17,7 +18,7 @@ const Detalles = () => {
 
  useEffect(() => {
   detallesReceta();
- }, []);
+ });
 
  if (!recetaEnVista) {
   return <h1>Cargando...</h1>;
@@ -25,8 +26,11 @@ const Detalles = () => {
 
   return (
     <div>
-      <img src="imagen" alt={recetaEnVista.nombre} />
-      <h4>{recetaEnVista.nombre}</h4>
+      <Header/>
+      <div>
+        <img src={recetaEnVista.imagen} alt={recetaEnVista.nombre} />
+        <h4>{recetaEnVista.nombre}</h4>
+      </div>
     </div>
   );
 };
