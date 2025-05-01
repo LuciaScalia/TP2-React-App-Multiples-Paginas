@@ -13,7 +13,6 @@ const Header = () => {
         <button onClick={() =>  navigate(ROUTES.home)}>🏠 Home</button>
         <button onClick={() => navigate(ROUTES.favoritos)}>⭐ Favoritos</button>
       </div>
-
     </header>
   );
 };
