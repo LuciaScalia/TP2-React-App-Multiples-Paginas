@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import ROUTES from '../../routes/Routes';
+import ROUTES from '../../const/Routes';
 import { useTranslation } from 'react-i18next';
 
 const TarjetaReceta = ({ receta }) => {
@@ -15,8 +15,8 @@ const TarjetaReceta = ({ receta }) => {
     <div>
       <img src={receta.imagen} alt={receta.nombre} />
       <h3>{receta.nombre}</h3>
-      <p><strong>País de origen:</strong> {receta.pais_origen}</p>
-      <p><strong>Tiempo de preparación:</strong> {receta.tiempo_preparacion}</p>
+      <p><strong>{t('countryOfOrigin')}:</strong> {receta.pais}</p>
+      <p><strong>{t('totalTime')}:</strong> {receta.tiempo}</p>
       <button onClick={verDetalles}>
         {t('details')}
       </button>

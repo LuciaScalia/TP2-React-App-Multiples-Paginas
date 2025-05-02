@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import ROUTES from '../../routes/Routes'
+import ROUTES from '../../const/Routes'
 
 function Favoritos() {
   const navigate = useNavigate()

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import { useTranslation } from 'react-i18next';
 
 const Detalles = () => {
   const {id} = useParams();  
   const [recetaEnVista, setRecetaEnVista] = useState();
+  const { t } = useTranslation();
   
   const detallesReceta = async () => {
     try {
@@ -21,7 +23,7 @@ const Detalles = () => {
  });
 
  if (!recetaEnVista) {
-  return <h1>Cargando...</h1>;
+  return <h1>{t('loading')}</h1>;
  }
 
   return (

@@ -6,15 +6,27 @@ i18n.use(initReactI18next).init({
     en: {
       translation: {
         details: "Details",
+        language: "English",
+        saved: "Saved",
+        home: "Home",
+        totalTime: "Total time",
+        countryOfOrigin: "Country of origin",
+        loading: "Loading..."
       }
     },
     es: {
       translation: {
         details: "Detalles",
+        language: "Español",
+        saved: "Favoritos",
+        home: "Inicio",
+        totalTime: "Tiempo de preparación",
+        countryOfOrigin: "País de origen",
+        loading: "Cargando..."
       }
     }
   },
-  lng: "es", // Idioma por defecto
+  lng: localStorage.getItem("i18nextLng"), // Idioma por defecto
   fallbackLng: "en",
   interpolation: {
     escapeValue: false
