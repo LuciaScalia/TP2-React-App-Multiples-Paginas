@@ -1,31 +1,59 @@
 import React, { useEffect, useState } from 'react';
 import TarjetaReceta from '../../components/TarjetaReceta/TarjetaReceta';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
   const [recetas, setRecetas] = useState([]);
+  const [busqueda, setBusqueda] = useState('');
+  const [recetasFiltradas, setRecetasFiltradas] = useState([]);
 
   useEffect(() => {
-    fetch('https://68113cbe3ac96f7119a4032e.mockapi.io/api/v1/Recetas')
-      .then((response) => response.json())
-      .then((data) => {
+    const obtenerRecetas = async () => {
+      try {
+        const response = await fetch('https://68113cbe3ac96f7119a4032e.mockapi.io/api/v1/Recetas');
+        if (!response.ok) throw new Error(`Error en la solicitud: ${response.status}`);
+        
+        const data = await response.json();
         console.log("Datos desde API:", data);
         setRecetas(data);
-      })
-      .catch((error) => console.error("Error al obtener las recetas:", error));
+      } catch (error) {
+        console.error("Error al obtener las recetas:", error);
+      }
+    };
+
+    obtenerRecetas();
   }, []);
 
+  useEffect(() => {
+    const texto = busqueda.toLowerCase();
+    const filtradas = recetas.filter((receta) => {
+      const nombreCoincide = receta.nombre.toLowerCase().includes(texto);
+      const ingredientesCoinciden = receta.ingredientes?.some((ing) =>
+        ing.toLowerCase().includes(texto)
+      );
+      return nombreCoincide || ingredientesCoinciden;
+    });
+    setRecetasFiltradas(filtradas);
+  }, [busqueda, recetas]);
+
   return (
-    
     <div>
-      <Header/>
+      <Header />
       <h1>Listado de Recetas</h1>
       
-      <div>
-        {recetas.map((receta) => (
+      <input
+        type="text"
+        placeholder="Buscar"
+        value={busqueda}
+        onChange={(e) => setBusqueda(e.target.value)}
+      />
+       <div>
+        {recetasFiltradas.map((receta) => (
           <TarjetaReceta key={receta.id} receta={receta} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 };
