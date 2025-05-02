@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import TarjetaReceta from '../../components/TarjetaReceta/TarjetaReceta';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer'
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
-  const [recetas, setRecetas] = useState([]);
+  const [recetas, setRecetas] = useState();
   const [busqueda, setBusqueda] = useState('');
   const [recetasFiltradas, setRecetasFiltradas] = useState([]);
-
+  const { t } = useTranslation();
   useEffect(() => {
     const obtenerRecetas = async () => {
       try {
@@ -24,8 +25,9 @@ const Home = () => {
 
     obtenerRecetas();
   }, []);
-
+  
   useEffect(() => {
+    if (!recetas) return
     const texto = busqueda.toLowerCase();
     const filtradas = recetas.filter((receta) => {
       const nombreCoincide = receta.nombre.toLowerCase().includes(texto);
@@ -36,7 +38,9 @@ const Home = () => {
     });
     setRecetasFiltradas(filtradas);
   }, [busqueda, recetas]);
-
+  if (!recetas) {
+    return <h1>{t('loading')}</h1>;
+  }
   return (
     <div>
       <Header />

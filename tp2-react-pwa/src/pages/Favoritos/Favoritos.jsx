@@ -1,15 +1,11 @@
-import { useNavigate } from 'react-router-dom'
-<<<<<<< HEAD
-import ROUTES from '../../const/Routes'
-=======
-import ROUTES from '../../routes/Routes'
-import React, { useEffect, useState } from 'react';
->>>>>>> f99f67ffe876fb5d730bc1c12c1663d5ce417107
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function Favoritos() {
-  const navigate = useNavigate()
-  const [favoritos, setFavoritos] = useState([]);
-
+  const [favoritos, setFavoritos] = useState();
+  const { t } = useTranslation();
   useEffect(() => {
     const listaFavs = JSON.parse(localStorage.getItem("favoritos")) || [];
     setFavoritos(listaFavs);
@@ -20,11 +16,13 @@ function Favoritos() {
     setFavoritos(nuevosFavoritos);
     localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
   };
-
+  if (!favoritos) {
+    return <h1>{t('loading')}</h1>;
+  }
   return (
     <div>
+      <Header/>
       <h1>🟡 Página: Favoritos</h1>
-      <button onClick={() => navigate(ROUTES.home)}>Volver al Home</button>
       <div>
         {favoritos.length > 0 ? (
           favoritos.map(receta => (
@@ -39,8 +37,9 @@ function Favoritos() {
           <p>No hay recetas en favoritos aún.</p>
         )}
       </div>
+      <Footer/>
     </div>
   );
 }
 
-export default Favoritos
+export default Favoritos;
