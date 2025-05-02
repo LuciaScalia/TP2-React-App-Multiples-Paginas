@@ -30,7 +30,7 @@ const Header = () => {
       <div>
         <button onClick={() => navigate(ROUTES.home)}>🏠 {t('home')}</button>
         {location.pathname !== ROUTES.favoritos && (
-          <button onClick={() => navigate(ROUTES.favoritos)}>⭐ Favoritos</button>
+          <button onClick={() => navigate(ROUTES.favoritos)}>⭐ {t('saved')}</button>
         )}
         <button onClick={cambiarIdioma}>{idioma === "en" ? "🟥" : "🟦"} {t('language')}</button>
       </div>
