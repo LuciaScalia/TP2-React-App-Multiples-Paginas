@@ -44,7 +44,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <h1>Listado de Recetas</h1>
+      <h1 className="text-blue-600" >Listado de Recetas</h1>
       
       <input
         type="text"
