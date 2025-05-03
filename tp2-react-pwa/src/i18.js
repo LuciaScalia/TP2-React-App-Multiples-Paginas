@@ -5,24 +5,26 @@ i18n.use(initReactI18next).init({
   resources: {
     en: {
       translation: {
-        details: "Details",
+        tittle: "List of Recipes",
         language: "English",
         saved: "Saved",
         home: "Home",
         totalTime: "Total time",
         countryOfOrigin: "Country of origin",
-        loading: "Loading..."
+        loading: "Loading...",
+        search: "Search Recipe...",
       }
     },
     es: {
       translation: {
-        details: "Detalles",
+        tittle : "Listado de Recetas",
         language: "Español",
         saved: "Favoritos",
         home: "Inicio",
         totalTime: "Tiempo de preparación",
         countryOfOrigin: "País de origen",
-        loading: "Cargando..."
+        loading: "Cargando...",
+        search: "Buscar Receta...",
       }
     }
   },
