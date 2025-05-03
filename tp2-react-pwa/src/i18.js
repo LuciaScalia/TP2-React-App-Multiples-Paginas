@@ -7,11 +7,14 @@ i18n.use(initReactI18next).init({
       translation: {
         details: "Details",
         language: "English",
-        saved: "Saved",
+        saved: "Favorites",
         home: "Home",
         totalTime: "Total time",
         countryOfOrigin: "Country of origin",
-        loading: "Loading..."
+        loading: "Loading...",
+        steps: "Steps",
+        description: "Description",
+        ingredients: "Ingredients"
       }
     },
     es: {
@@ -22,7 +25,10 @@ i18n.use(initReactI18next).init({
         home: "Inicio",
         totalTime: "Tiempo de preparación",
         countryOfOrigin: "País de origen",
-        loading: "Cargando..."
+        loading: "Cargando...",
+        steps: "Pasos",
+        description: "Decripción",
+        ingredients: "Ingredientes"
       }
     }
   },

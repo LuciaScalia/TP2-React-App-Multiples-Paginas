@@ -14,7 +14,6 @@ const Header = () => {
   const cambiarIdioma = () => {
     const nuevoIdioma = idioma === "es" ? "en" : "es";
     i18n.changeLanguage(nuevoIdioma);
-    //setIdioma(nuevoIdioma);
     localStorage.setItem("i18nextLng", nuevoIdioma);
   }
 
