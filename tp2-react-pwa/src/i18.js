@@ -15,7 +15,8 @@ i18n.use(initReactI18next).init({
         steps: "Steps",
         description: "Description",
         ingredients: "Ingredients",
-        search: "Search by name or ingredient..."
+        search: "Search by name or ingredient...",
+        tittle: "List of Recipe"
       }
     },
     es: {
@@ -30,7 +31,8 @@ i18n.use(initReactI18next).init({
         steps: "Pasos",
         description: "Decripción",
         ingredients: "Ingredientes",
-        search: "Buscar por nombre o ingrediente..."
+        search: "Buscar por nombre o ingrediente...",
+        tittle: "Lista de Recetas"
       }
     }
   },
