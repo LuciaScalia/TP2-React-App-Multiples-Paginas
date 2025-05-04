@@ -1,46 +1,46 @@
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import React, { useEffect, useState } from "react";
+import TarjetaReceta from "../../components/TarjetaReceta/TarjetaReceta";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import { useTranslation } from "react-i18next";
 
-function Favoritos() {
-  const [favoritos, setFavoritos] = useState();
+const Favoritos = () => {
+  const [favoritos, setFavoritos] = useState([]);
   const { t } = useTranslation();
+
   useEffect(() => {
     const listaFavs = JSON.parse(localStorage.getItem("favoritos")) || [];
     setFavoritos(listaFavs);
   }, []);
 
   const eliminarFavorito = (id) => {
-    const nuevosFavoritos = favoritos.filter(receta => receta.id !== id);
+    const nuevosFavoritos = favoritos.filter((receta) => receta.id !== id);
     setFavoritos(nuevosFavoritos);
     localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
   };
-  if (!favoritos) {
-    return <h1>{t('loading')}</h1>;
-  }
+
   return (
-    <div>
-      <Header/>
-      <h1>🟡 Página: Favoritos</h1>
-      <div>
+    <div className="bg-gray-100 min-h-screen">
+      <Header />
+      <div className="p-6 max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-6 text-gray-700">{t('favRecipes')}</h1>
+
         {favoritos.length > 0 ? (
-          favoritos.map(receta => (
-            <div key={receta.id}>
-              <img src={receta.imagen} alt={receta.nombre} width="100" />
-              <h3>{receta.nombre}</h3>
-              <h4>{receta.descripcion}</h4>
-              <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-               onClick={() => eliminarFavorito(receta.id)}>❌ Quitar</button>
-            </div>
-          ))
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {favoritos.map((receta) => (
+              <div key={receta.id} className="relative">
+                <TarjetaReceta receta={receta} onToggleFavorito={() => eliminarFavorito(receta.id)} />
+
+              </div>
+            ))}
+          </div>
         ) : (
-          <p>No hay recetas en favoritos aún.</p>
+          <p className="text-center text-lg text-gray-500">{t('noFavorites')}</p>
         )}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
-}
+};
 
 export default Favoritos;

@@ -16,7 +16,9 @@ i18n.use(initReactI18next).init({
         description: "Description",
         ingredients: "Ingredients",
         search: "Search by name or ingredient...",
-        tittle: "List of Recipe"
+        tittle: "List of Recipe",
+        favRecipes: "My favorite recipes",
+        noFavorites: "There are no recipes"
       }
     },
     es: {
@@ -32,7 +34,9 @@ i18n.use(initReactI18next).init({
         description: "Decripción",
         ingredients: "Ingredientes",
         search: "Buscar por nombre o ingrediente...",
-        tittle: "Lista de Recetas"
+        tittle: "Lista de Recetas",
+        favRecipes: "Mis recetas favoritas",
+        noFavorites: "No hay recetas"
       }
     }
   },
