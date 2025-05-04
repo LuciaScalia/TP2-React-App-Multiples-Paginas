@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import Footer from "../../components/Footer/Footer";
 import { useTranslation } from 'react-i18next';
 
 const Detalles = () => {
@@ -62,6 +63,7 @@ const Detalles = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
