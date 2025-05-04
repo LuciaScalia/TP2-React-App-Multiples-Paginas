@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <nav className="w-full flex justify-between px-4 py-3">
         <div>
           <button onClick={() => navigate(ROUTES.home)} className="text-blue-600 font-semibold text-lg font-semibold">
             🏠 {t("home")}
@@ -41,7 +41,7 @@ const Header = () => {
             onClick={cambiarIdioma}
             className="text-gray-600 text-lg font-medium"
           >
-            {idioma === "en" ? "🟥" : "🟦"} {t("language")}
+            <img className='w-9 h-6 md:w-10 md:h-7 rounded-sm' src={idioma === "en" ? "/Flag_of_the_United_States.svg.webp" : "/Flag_of_Argentina.svg.png"} alt={t('language')} />
           </button>
         </div>
       </nav>
