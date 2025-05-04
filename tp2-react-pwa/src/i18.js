@@ -14,7 +14,9 @@ i18n.use(initReactI18next).init({
         loading: "Loading...",
         steps: "Steps",
         description: "Description",
-        ingredients: "Ingredients"
+        ingredients: "Ingredients",
+        tittle: "List of Recipe",
+        search : "Search Recipes"
       }
     },
     es: {
@@ -28,7 +30,9 @@ i18n.use(initReactI18next).init({
         loading: "Cargando...",
         steps: "Pasos",
         description: "Decripción",
-        ingredients: "Ingredientes"
+        ingredients: "Ingredientes",
+        tittle: "Lista de Recetas",
+        search: "Buscar Recetas..."
       }
     }
   },

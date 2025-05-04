@@ -34,23 +34,24 @@ const Detalles = () => {
           <div class='w-full md:w-1/2'>
             <img src={recetaEnVista.imagen} alt={recetaEnVista.nombre} class='md:rounded-l-md'/>
             <div class='p-8 pt-4'>
-              <h4 class='text-center font-dancing text-3xl'>{recetaEnVista.nombre}</h4>
+              <h4 class='text-center font-dancing text-5xl'>{recetaEnVista.nombre}</h4>
               <div class='mt-5 text-gray-500'>
                 <div class='p-1'>{t('countryOfOrigin')}: {recetaEnVista.pais}</div>
                 <div class='p-1'>{t('totalTime')}: {recetaEnVista.tiempo}</div>
               </div>
-              <h2 class='text-center font-dancing text-3xl p-3'>{t('ingredients')}</h2>
-              <ol class='list-none'>
-                {recetaEnVista.ingredientes.map((ingrediente) => (
-                  <li class='m-3 text-gray-500'>{ingrediente}</li>
-                ))}
-              </ol>
+              <h2 class='text-center font-dancing text-3xl mt-14'>{t('description')}</h2>
+              <p class=' mt-10 pl-1 text-gray-700'>{recetaEnVista.descripcion}</p>
             </div>
           </div>
 
           <div class='w-full md:w-1/2 xs:border-t p-8 md:border-l border-gray-600'>
-            <h2 class='text-center font-dancing text-3xl'>{t('description')}</h2>
-            <p class='m-5 pl-6 text-gray-700'>{recetaEnVista.descripcion}</p>
+
+            <h2 class='text-center font-dancing text-3xl p-3'>{t('ingredients')}</h2>
+              <ol class='list-disc ml-6'>
+                {recetaEnVista.ingredientes.map((ingrediente) => (
+                  <li class='m-3 text-gray-500'>{ingrediente}</li>
+                ))}
+              </ol>
             <h2 class='text-center font-dancing text-3xl'>{t('steps')}</h2>
             <div>
               <ol class='list-decimal'>
