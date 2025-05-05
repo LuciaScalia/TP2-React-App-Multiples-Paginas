@@ -32,13 +32,10 @@ const Header = () => {
         <div className="flex items-center gap-4">
           {location.pathname !== ROUTES.favoritos && (
             <button onClick={() => navigate(ROUTES.favoritos)} className="text-yellow-500 font-semibold text-lg font-semibold">
-              ⭐ {t("saved")}
+              ⭐ {t("favorites")}
             </button>
           )}
-          <button
-            onClick={cambiarIdioma}
-            className="text-gray-600 text-lg font-medium"
-          >
+          <button onClick={cambiarIdioma} className="text-gray-600 text-lg font-medium">
             <img className='w-9 h-6 md:w-10 md:h-7 rounded-sm' src={idioma === "en" ? "/Flag_of_the_United_States.svg.webp" : "/Flag_of_Argentina.svg.png"} alt={t('language')} />
           </button>
         </div>

@@ -7,8 +7,7 @@ i18n.use(initReactI18next).init({
       translation: {
         details: "Details",
         language: "English",
-        saved: "Favorites",
-        home: "Home",
+        favorites: "Favorites",
         totalTime: "Total time",
         countryOfOrigin: "Country of origin",
         loading: "Loading...",
@@ -28,8 +27,7 @@ i18n.use(initReactI18next).init({
       translation: {
         details: "Detalles",
         language: "Español",
-        saved: "Favoritos",
-        home: "Inicio",
+        favorites: "Favoritos",
         totalTime: "Tiempo de preparación",
         countryOfOrigin: "País de origen",
         loading: "Cargando...",

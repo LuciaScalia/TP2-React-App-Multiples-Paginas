@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import TarjetaReceta from '../../components/TarjetaReceta/TarjetaReceta';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import { useTranslation } from "react-i18next";
 
 const Home = () => {
@@ -41,7 +39,6 @@ const Home = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <Header />
       <div className="p-6 max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-6 text-gray-700 font-dancing">{t('tittle')}</h1>
         
@@ -67,7 +64,6 @@ const Home = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

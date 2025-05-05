@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../../components/Header/Header';
-import Footer from "../../components/Footer/Footer";
 import { useTranslation } from 'react-i18next';
 import { ROUTES } from '../../const/Routes';
 import { useNavigate } from "react-router-dom";
@@ -31,7 +29,7 @@ const Detalles = () => {
 
         setRecetaEnVista(detallesRecetaResultParsed);
     } catch (error) {
-        console.log(error + ": Error al recuperar los datos");
+        console.log("Error al recuperar los datos: " + error);
     }
   }; 
 
@@ -41,26 +39,23 @@ const Detalles = () => {
 
   if (notFound) {
     return (
-<div class="">
+      <div>
+        <div className="min-h-screen flex items-center justify-center bg-[#131e3a]">
+          <div className="relative">
+            <img src="/404.jpg" alt="404 Error" className="w-full max-w-lg mb-40" />
 
-  <div className="min-h-screen flex items-center justify-center bg-[#131e3a]">
-  <div className="relative">
-    <img src="/404.jpg" alt="404 Error" className="w-full max-w-lg mb-40" />
-
-    <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-[#e94f1d] text-lg sm:text-xl md:text-2xl font-semibold ml-1 mb-40">
-      {t('notFound404')}
-    </div>
-    <button
-      button onClick={() => navigate(ROUTES.home)} 
-      className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded shadow-md ml-1 mb-40  " 
-    >
-      {t('backHome')}
-    </button>
-  </div>
-</div>
-
-</div>
-
+            <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-[#e94f1d] text-lg sm:text-xl md:text-2xl font-semibold ml-1 mb-40">
+              {t('notFound404')}
+            </div>
+            <button
+              button onClick={() => navigate(ROUTES.home)} 
+              className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded shadow-md ml-1 mb-40  " 
+            >
+              {t('backHome')}
+            </button>
+          </div>
+        </div>
+      </div>
     );
   }
 
@@ -68,11 +63,10 @@ const Detalles = () => {
 
   return (
     <div className='bg-gray-100 min-h-screen'>
-      <Header/>
       <div className='flex justify-center content-center'>
         <div className='flex flex-col md:flex-row justify-center border bg-white border-gray-500 content-center sm:w-full md:w-3/4 max-w-full md:rounded-md md:shadow-md md:m-10'>
           <div className='w-full md:w-1/2'>
-            <img src={recetaEnVista.imagen} alt={recetaEnVista.nombre} className='md:rounded-lt-md'/>
+            <img src={recetaEnVista.imagen} alt={recetaEnVista.nombre} className='md:rounded-tl-md'/>
             <div className='p-8 pt-4'>
               <h4 className='text-center font-dancing text-4xl'>{recetaEnVista.nombre}</h4>
               <div className='mt-5 text-gray-600'>
@@ -102,7 +96,6 @@ const Detalles = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
