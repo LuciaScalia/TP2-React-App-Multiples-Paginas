@@ -23,12 +23,10 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
+    <header className="sticky top-0 z-50 bg-white shadow-md align-middle">
       <nav className="w-full flex justify-between px-4 py-3">
-        <div>
-          <button onClick={() => navigate(ROUTES.home)} className="text-blue-600 font-semibold text-lg font-semibold">
-            🏠 {t("home")}
-          </button>
+        <div onClick={() => navigate(ROUTES.home)} className="flex justify-center items-center cursor-pointer">
+          <img className="w-16 md:h-10" src="/logo.svg" alt="logo" />
         </div>
 
         <div className="flex items-center gap-4">

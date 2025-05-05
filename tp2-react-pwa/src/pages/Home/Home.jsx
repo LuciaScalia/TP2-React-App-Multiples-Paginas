@@ -55,11 +55,16 @@ const Home = () => {
           />
         </div>
 
-
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {recetasFiltradas.map((receta) => (
+          {recetasFiltradas?.length > 0 ? (
+            recetasFiltradas.map((receta) => (
             <TarjetaReceta key={receta.id} receta={receta} />
-          ))}
+          ))
+          ) : (
+            <div className="flex justify-center items-center col-span-3">
+              <p className="text-center text-gray-500 text-lg">{t('noResultsFound')}</p>
+            </div>
+          )}
         </div>
       </div>
       <Footer />

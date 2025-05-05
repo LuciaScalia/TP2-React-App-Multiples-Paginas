@@ -23,7 +23,7 @@ const Favoritos = () => {
     <div className="bg-gray-100 min-h-screen">
       <Header />
       <div className="p-6 max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-6 text-gray-700">{t('favRecipes')}</h1>
+        <h1 className="text-4xl font-bold text-center mb-6 text-gray-700 font-dancing">{t('favRecipes')}</h1>
 
         {favoritos.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

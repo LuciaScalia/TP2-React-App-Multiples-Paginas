@@ -21,15 +21,15 @@ const Detalles = () => {
 
   useEffect(() => {
     detallesReceta();
-  });
+  }, []);
 
   if (!recetaEnVista) return <h1 className="text-center text-lg">{t('loading')}</h1>;
 
   return (
-    <div>
+    <div className='bg-gray-100 min-h-screen'>
       <Header/>
       <div className='flex justify-center content-center'>
-        <div className='flex flex-col md:flex-row justify-center border border-gray-600 content-center sm:w-full md:w-3/4 max-w-full md:rounded-md shadow-md m-10'>
+        <div className='flex flex-col md:flex-row justify-center border bg-white border-gray-500 content-center sm:w-full md:w-3/4 max-w-full md:rounded-md md:shadow-md md:m-10'>
           <div className='w-full md:w-1/2'>
             <img src={recetaEnVista.imagen} alt={recetaEnVista.nombre} className='md:rounded-lt-md'/>
             <div className='p-8 pt-4'>
@@ -43,11 +43,11 @@ const Detalles = () => {
             </div>
           </div>
 
-          <div className='w-full md:w-1/2 p-8 md:border-l border-gray-600 p-6'>
+          <div className='w-full md:w-1/2 p-8 md:border-l border-gray-500 p-6'>
             <h2 className='text-center font-dancing text-3xl p-6 pt-1'>{t('ingredients')}</h2>
               <ol className='list-disc pl-6'>
-                {recetaEnVista.ingredientes.map((ingrediente) => (
-                  <li className='m-4 text-gray-600'>{ingrediente}</li>
+                {recetaEnVista.ingredientes.map((ingrediente, index) => (
+                  <li key={index} className='m-4 text-gray-600'>{ingrediente}</li>
                 ))}
               </ol>
             <h2 className='text-center font-dancing text-3xl p-3 pb-2'>{t('steps')}</h2>

@@ -16,9 +16,10 @@ i18n.use(initReactI18next).init({
         description: "Description",
         ingredients: "Ingredients",
         search: "Search by name or ingredient...",
-        tittle: "List of Recipe",
+        tittle: "List of Recipes",
         favRecipes: "My favorite recipes",
-        noFavorites: "There are no recipes"
+        noFavorites: "There are no recipes yet",
+        noResultsFound: "No results found"
       }
     },
     es: {
@@ -31,12 +32,13 @@ i18n.use(initReactI18next).init({
         countryOfOrigin: "País de origen",
         loading: "Cargando...",
         steps: "Pasos",
-        description: "Decripción",
+        description: "Descripción",
         ingredients: "Ingredientes",
         search: "Buscar por nombre o ingrediente...",
         tittle: "Lista de Recetas",
         favRecipes: "Mis recetas favoritas",
-        noFavorites: "No hay recetas"
+        noFavorites: "No hay recetas",
+        noResultsFound: "No se encontraron resultados"
       }
     }
   },
