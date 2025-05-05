@@ -3,16 +3,32 @@ import { useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from "../../components/Footer/Footer";
 import { useTranslation } from 'react-i18next';
+import { ROUTES } from '../../const/Routes';
+import { useNavigate } from "react-router-dom";
 
 const Detalles = () => {
   const {id} = useParams();  
   const [recetaEnVista, setRecetaEnVista] = useState();
   const { t } = useTranslation();
+  const [notFound, setNotFound] = useState(false);
+  const navigate = useNavigate();
   
   const detallesReceta = async () => {
     try {
         const detallesRecetaResult = await fetch(`https://68113cbe3ac96f7119a4032e.mockapi.io/api/v1/Recetas/${id}`);
+
+        if (!detallesRecetaResult.ok) {
+          setNotFound(true);
+          return;
+        }
+
         const detallesRecetaResultParsed = await detallesRecetaResult.json();
+
+        if (!detallesRecetaResultParsed || Object.keys(detallesRecetaResultParsed).length === 0) {
+          setNotFound(true);
+          return;
+        }
+
         setRecetaEnVista(detallesRecetaResultParsed);
     } catch (error) {
         console.log(error + ": Error al recuperar los datos");
@@ -21,7 +37,32 @@ const Detalles = () => {
 
   useEffect(() => {
     detallesReceta();
-  }, []);
+  }, [id]);
+
+  if (notFound) {
+    return (
+<div class="">
+
+  <div className="min-h-screen flex items-center justify-center bg-[#131e3a]">
+  <div className="relative">
+    <img src="/404.jpg" alt="404 Error" className="w-full max-w-lg mb-40" />
+
+    <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-[#e94f1d] text-lg sm:text-xl md:text-2xl font-semibold ml-1 mb-40">
+      {t('notFound404')}
+    </div>
+    <button
+      button onClick={() => navigate(ROUTES.home)} 
+      className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded shadow-md ml-1 mb-40  " 
+    >
+      {t('backHome')}
+    </button>
+  </div>
+</div>
+
+</div>
+
+    );
+  }
 
   if (!recetaEnVista) return <h1 className="text-center text-lg">{t('loading')}</h1>;
 

@@ -18,8 +18,10 @@ i18n.use(initReactI18next).init({
         search: "Search by name or ingredient...",
         tittle: "List of Recipes",
         favRecipes: "My favorite recipes",
-        noFavorites: "There are no recipes yet",
-        noResultsFound: "No results found"
+        noResultsFound: "No results found",
+        noFavorites: "There are no recipes",
+        notFound404: "Page not Found",
+        backHome: "Back to Home"
       }
     },
     es: {
@@ -38,7 +40,9 @@ i18n.use(initReactI18next).init({
         tittle: "Lista de Recetas",
         favRecipes: "Mis recetas favoritas",
         noFavorites: "No hay recetas",
-        noResultsFound: "No se encontraron resultados"
+        noResultsFound: "No se encontraron resultados",
+        notFound404: "Pagina no Encontrada",
+        backHome: "Volver al inicio"
       }
     }
   },
